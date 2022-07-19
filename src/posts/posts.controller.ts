@@ -11,7 +11,7 @@ import {
   import { CreateUserDto } from 'src/users/dto/create-user.dto';
   import { JwtAuthGuard } from 'src/users/guards/jwt-guard.guard';
   import { UserDecorator } from 'src/users/user.decorator';
-  import { User } from 'src/users/user.model';
+  import { User } from 'src/users/user.schema';
   import { CreatePostDto } from './dto/create-post.dto';
   import { UpdatePostDto } from './dto/update-post.dto';
   import { PostsService } from './posts.service';
@@ -22,7 +22,7 @@ export class PostsController {
   // CRUD
   @Post()
   @UseGuards(JwtAuthGuard)
-  create(@Body() post: CreatePostDto,   @UserDecorator() user: User) {
+  create(@Body() post: CreatePostDto, user : User) {
     return this.postsService.create(
       post , user
     )

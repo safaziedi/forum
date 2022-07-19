@@ -11,7 +11,7 @@ import {
   import { CreateUserDto } from 'src/users/dto/create-user.dto';
   import { JwtAuthGuard } from 'src/users/guards/jwt-guard.guard';
   import { UserDecorator } from 'src/users/user.decorator';
-  import { User } from 'src/users/user.model';
+  import { User } from 'src/users/user.schema';
 import { CommentsService } from './comments.service';
 import { CreateCommentDto } from './dto/create-comment.dto';
 
