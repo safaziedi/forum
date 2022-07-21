@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import mongoose, { Model } from 'mongoose';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
@@ -16,18 +16,19 @@ export class PostsService {
     @InjectModel('Post') private PostModel: Model<Post>
   ) {}
 
-   /* async create(
-      createPostDto: CreatePostDto , @UserDecorator() author : User): Promise<Post> {
-        const createdPost = new this.PostModel({ ...createPostDto ,author} )
-        //console.log(createdPost)
-        //je dois update table user aussi 
-        return createdPost.save();
-      }*/
 
-      async create(createPostDto: CreatePostDto , author : User): Promise<Post> {
-        const createdPost = new this.PostModel({ ...createPostDto,author});
-        console.log(createdPost.author)
-        return createdPost.save();
+      async create(createPostDto: CreatePostDto , author: User): Promise<any> {
+
+        console.log(author)
+  
+        const {description } = createPostDto;
+        const newPost = new this.PostModel({
+          author,
+          description
+        })
+        const result = await newPost.save()
+        //update user 
+        return newPost
       }
 
 

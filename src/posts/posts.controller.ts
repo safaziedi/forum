@@ -19,37 +19,39 @@ import {
 export class PostsController {
     constructor(private postsService: PostsService) {}
 
+
+
   // CRUD
   @Post()
   @UseGuards(JwtAuthGuard)
-  create(@Body() post: CreatePostDto, user : User) {
-    return this.postsService.create(
-      post , user
+  async create(@Body() post: CreatePostDto,@UserDecorator() author : User) {
+    return await this.postsService.create(
+      post , author
     )
   }
 
   
   @Get()
   @UseGuards(JwtAuthGuard)
-  getAll(
+  async getAll(
     @UserDecorator() user: User
   ) {
-    return this.postsService.getAll(user);
+    return await this.postsService.getAll(user);
   }
 
   @Patch()
   @UseGuards(JwtAuthGuard)
-  update(@Body() post: UpdatePostDto) {
-    return this.postsService.update(post);
+  async update(@Body() post: UpdatePostDto) {
+    return await this.postsService.update(post);
   }
 
   @Get(':id')
-  findpostbyid(@Param('id') id: string) {
-    return this.postsService.findpostbyid(id);
+  async findpostbyid(@Param('id') id: string) {
+    return await this.postsService.findpostbyid(id);
   }
 
   @Delete(':id')
-  delete(@Param('id') id: string) {
-    return this.postsService.delete(id);
+  async delete(@Param('id') id: string) {
+    return await this.postsService.delete(id);
   }
 }

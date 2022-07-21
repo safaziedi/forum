@@ -7,20 +7,20 @@ export class AuthController {
     constructor(private authService : AuthService){}
 
     @Post('/signin')
-    signinLocal(@Body() dto:authDto){
-        return this.authService.signinLocal(dto)
+    async signinLocal(@Body() dto:authDto){
+        return await this.authService.signinLocal(dto)
     }
 
     @Post('/singup')
-    signupLocal(@Body() dto:authDto){
-        return this.authService.signupLocal(dto)
+    async signupLocal(@Body() dto:authDto){
+        return await this.authService.signupLocal(dto)
     }
 
     @Post('logout')
     async logoutLocal(@Res({ passthrough: true }) response: Response) {
       response.clearCookie('jwt');
   
-      return {
+      return  {
         message: 'logged out successfully ',
       };
     }

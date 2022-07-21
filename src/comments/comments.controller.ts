@@ -22,28 +22,26 @@ export class CommentsController {
 
     // CRUD
     @Post()
-    create(@Body() comment: CreateCommentDto, user : CreateUserDto) {
-      return this.commentsService.create(
-        comment , user
+    async create(@Body() comment: CreateCommentDto, user : CreateUserDto) {
+      return await this.commentsService.create(
+        comment
       )
     }
   
     
     @Get()
-    @UseGuards(JwtAuthGuard)
-    getAll(
-      @UserDecorator() user: User
+    async getAll(
     ) {
-      return this.commentsService.getAll(user);
+      return await this.commentsService.getAll();
     }
   
     @Patch()
-    update(@Body() comment: UpdateCommentDto) {
-      return this.commentsService.update(comment);
+    async update(@Body() comment: UpdateCommentDto) {
+      return await this.commentsService.update(comment);
     }
   
     @Delete(':id')
-    delete(@Param('id') id: string) {
-      return this.commentsService.delete(id);
+    async delete(@Param('id') id: string) {
+      return await  this.commentsService.delete(id);
     }
 }

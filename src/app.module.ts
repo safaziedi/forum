@@ -5,6 +5,10 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { PostsModule } from './posts/posts.module';
 import { AuthModule } from './auth/auth.module';
+import { FormationsModule } from './Formations/formation.module';
+import { CoursModule } from './Cours/cours.module';
+import { CommentsModule } from './comments/comments.module';
+import { PrivateQuestionModule } from './PrivateQuestion/privatequestion.module';
 
 @Module({
   imports: [
@@ -12,6 +16,10 @@ import { AuthModule } from './auth/auth.module';
     UsersModule,
     PostsModule ,
     AuthModule,
+    CoursModule,
+    FormationsModule,
+    CommentsModule,
+    PrivateQuestionModule,
   ],
   controllers: [AppController],
   providers: [AppService],

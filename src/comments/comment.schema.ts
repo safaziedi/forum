@@ -3,16 +3,14 @@ import { Document } from 'mongoose';
 import { User } from 'src/users/user.schema';
 import * as mongoose from 'mongoose';
 
-export type PostDocument = Post & Document;
+export type CommentDocument = Comment & Document;
 
 @Schema()
-export class Post {
+export class Comment {
 
-    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: () => User })
-    author: User;
 
   @Prop()
   description: string;
 }
 
-export const PostSchema = SchemaFactory.createForClass(Post);
+export const CommentSchema = SchemaFactory.createForClass(Comment);

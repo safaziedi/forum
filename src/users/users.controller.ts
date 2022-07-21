@@ -10,34 +10,34 @@ export class UsersController {
 
   // CRUD
   @Post()
-  create(@Body() todo: CreateUserDto) {
-    return this.todosService.create(todo);
+  async create(@Body() todo: CreateUserDto) {
+    return await this.todosService.create(todo);
   }
 
   @Get()
-  getAll() {
-    return this.todosService.getAll();
+  async  getAll() {
+    return await this.todosService.getAll();
   }
 
   @Get(':id')
-  getUserById(@Param('id') id: string) {
-    return this.todosService.getUserById(id);
+  async  getUserById(@Param('id') id: string) {
+    return await this.todosService.getUserById(id);
   }
 
   @Get('/searchbymail/:email')
-  getUserbyemail(@Param('email') email: string) {
-    const userpass = this.todosService.findbyemail(email);
-    return userpass;
+  async  getUserbyemail(@Param('email') email: string) {
+     const userpass = this.todosService.findbyemail(email);
+    return await userpass;
   }
 
   @Patch()
-  update(@Body() todo: UpdateUserDto) {
-    return this.todosService.update(todo);
+  async  update(@Body() todo: UpdateUserDto) {
+    return await this.todosService.update(todo);
   }
 
   @Delete(':id')
-  delete(@Param('id') id: string) {
-    return this.todosService.delete(id);
+ async delete(@Param('id') id: string) {
+    return await this.todosService.delete(id);
   }
 
 

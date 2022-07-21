@@ -1,5 +1,6 @@
 import { CreateUserDto } from "src/users/dto/create-user.dto";
 
-export class CreateCommentDto  {
+export class CreateFormationDto  {
     description: string;
+    
 }

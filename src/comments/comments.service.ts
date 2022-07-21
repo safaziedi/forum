@@ -5,7 +5,7 @@ import { CreateUserDto } from 'src/users/dto/create-user.dto';
 import { UserDecorator } from 'src/users/user.decorator';
 import { CreateCommentDto } from './dto/create-comment.dto';
 import { UpdateCommentDto } from './dto/update-comment.dto';
-import { Comment } from './comment.model';
+import { Comment } from './comment.schema';
 @Injectable()
 export class CommentsService {
 
@@ -15,18 +15,15 @@ export class CommentsService {
     @InjectModel('Comment') private CommentModel: Model<Comment>,
   ) {}
 
-    async create(createCommentDto: CreateCommentDto , user : CreateUserDto 
-      //,idPost  : string
-      ): Promise<Comment> {
-        //verif if post exist
-        //const verifpost =await  ;
-      const createdComment = new this.CommentModel({ ...createCommentDto ,user});
-        return createdComment.save();
+    async create(createCommentDto: CreateCommentDto 
+      ): Promise<any> {
+
+
       }
 
 
-    async getAll(@UserDecorator() user): Promise<Comment[]> {
-        return this.CommentModel.find({user}).exec();
+    async getAll(): Promise<Comment[]> {
+        return this.CommentModel.find().exec();
       }
 
 

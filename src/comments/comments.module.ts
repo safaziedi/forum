@@ -2,7 +2,7 @@ import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { PostsModule } from 'src/posts/posts.module';
-import { CommentSchema } from './comment.model';
+import { Comment, CommentSchema } from './comment.schema';
 import { CommentsController } from './comments.controller';
 import { CommentsService } from './comments.service';
 
@@ -10,7 +10,7 @@ import { CommentsService } from './comments.service';
   imports :[
     MongooseModule.forFeature([
       {
-        name :'Comment' ,
+        name : Comment.name , 
         schema : CommentSchema ,
       }]
     ),HttpModule , PostsModule
