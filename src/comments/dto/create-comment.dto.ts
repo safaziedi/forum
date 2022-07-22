@@ -1,5 +1,7 @@
 import { CreateUserDto } from "src/users/dto/create-user.dto";
 
 export class CreateCommentDto  {
-    description: string;
+    contenue: string;
+    coursId : string ;
+
 }

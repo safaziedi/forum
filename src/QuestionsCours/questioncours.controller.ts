@@ -12,19 +12,19 @@ import {
   import { JwtAuthGuard } from 'src/users/guards/jwt-guard.guard';
   import { UserDecorator } from 'src/users/user.decorator';
   import { User } from 'src/users/user.schema';
-import { PrivateQuestionService } from './questioncours.service';
-import { CreatePrivateQuestionDto } from './dto/questioncours.dto';
+import { QestionsCoursService } from './questioncours.service';
+import { CreateQestionsCoursDto } from './dto/questioncours.dto';
 
-import { UpdatePrivateQuestionDto } from './dto/updatequestioncours.dto';
-@Controller('privateQuestion')
-export class PrivateQuestionController {
-    constructor(private privateQuestionService: PrivateQuestionService) {}
+import { UpdateQestionsCoursDto } from './dto/updatequestioncours.dto';
+@Controller('questioncours')
+export class QestionsCoursController {
+    constructor(private questioncoursService: QestionsCoursService) {}
 
     // CRUD
     @Post()
-    async create(@Body() privateQuestion: CreatePrivateQuestionDto) {
-      return await this.privateQuestionService.create(
-        privateQuestion
+    async create(@Body() questioncours: CreateQestionsCoursDto) {
+      return await this.questioncoursService.create(
+        questioncours
       )
     }
   
@@ -32,16 +32,16 @@ export class PrivateQuestionController {
     @Get()
     async getAll(
     ) {
-      return await this.privateQuestionService.getAll();
+      return await this.questioncoursService.getAll();
     }
   
     @Patch()
-    async update(@Body() privateQuestion: UpdatePrivateQuestionDto) {
-      return await this.privateQuestionService.update(privateQuestion);
+    async update(@Body() questioncours: UpdateQestionsCoursDto) {
+      return await this.questioncoursService.update(questioncours);
     }
   
     @Delete(':id')
     async delete(@Param('id') id: string) {
-      return await this.privateQuestionService.delete(id);
+      return await this.questioncoursService.delete(id);
     }
 }

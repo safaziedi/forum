@@ -4,10 +4,10 @@ import { User } from 'src/users/user.schema';
 import * as mongoose from 'mongoose';
 import { Formation } from 'src/Formations/formation.schema';
 
-export type PrivateQuestionDocument = PrivateQuestion & Document;
+export type TestFinalFormationDocument = TestFinalFormation & Document;
 
 @Schema()
-export class PrivateQuestion {
+export class TestFinalFormation {
 
   @Prop()
   contenue: string;
@@ -15,6 +15,8 @@ export class PrivateQuestion {
   formateurId : string;
   @Prop()
   etudiantId : string;
+  @Prop({type: Date, default: Date.now})
+  date: string;
 }
 
-export const PrivateQuestionSchema = SchemaFactory.createForClass(PrivateQuestion);
+export const TestFinalFormationSchema = SchemaFactory.createForClass(TestFinalFormation);

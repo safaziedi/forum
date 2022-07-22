@@ -12,19 +12,19 @@ import {
   import { JwtAuthGuard } from 'src/users/guards/jwt-guard.guard';
   import { UserDecorator } from 'src/users/user.decorator';
   import { User } from 'src/users/user.schema';
-import { PrivateQuestionService } from './testfinalformation.service';
-import { CreatePrivateQuestionDto } from './dto/testfinalformation.dto';
+import { TestFinalFormationService } from './testfinalformation.service';
+import { CreateTestFinalFormationDto } from './dto/testfinalformation.dto';
 
-import { UpdatePrivateQuestionDto } from './dto/updatetestfinalformation.dto';
-@Controller('privateQuestion')
-export class PrivateQuestionController {
-    constructor(private privateQuestionService: PrivateQuestionService) {}
+import { UpdateTestFinalFormationDto } from './dto/updatetestfinalformation.dto';
+@Controller('TestFinalFormation')
+export class TestFinalFormationController {
+    constructor(private TestFinalFormationService: TestFinalFormationService) {}
 
     // CRUD
     @Post()
-    async create(@Body() privateQuestion: CreatePrivateQuestionDto) {
-      return await this.privateQuestionService.create(
-        privateQuestion
+    async create(@Body() TestFinalFormation: CreateTestFinalFormationDto) {
+      return await this.TestFinalFormationService.create(
+        TestFinalFormation
       )
     }
   
@@ -32,16 +32,16 @@ export class PrivateQuestionController {
     @Get()
     async getAll(
     ) {
-      return await this.privateQuestionService.getAll();
+      return await this.TestFinalFormationService.getAll();
     }
   
     @Patch()
-    async update(@Body() privateQuestion: UpdatePrivateQuestionDto) {
-      return await this.privateQuestionService.update(privateQuestion);
+    async update(@Body() TestFinalFormation: UpdateTestFinalFormationDto) {
+      return await this.TestFinalFormationService.update(TestFinalFormation);
     }
   
     @Delete(':id')
     async delete(@Param('id') id: string) {
-      return await this.privateQuestionService.delete(id);
+      return await this.TestFinalFormationService.delete(id);
     }
 }

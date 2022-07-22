@@ -12,19 +12,19 @@ import {
   import { JwtAuthGuard } from 'src/users/guards/jwt-guard.guard';
   import { UserDecorator } from 'src/users/user.decorator';
   import { User } from 'src/users/user.schema';
-import { PrivateQuestionService } from './reponsequestioncours.service';
-import { CreatePrivateQuestionDto } from './dto/reponsequestioncours.dto';
+import { ReponseQestionsCoursService } from './reponsequestioncours.service';
+import { CreateReponseQestionsCoursDto } from './dto/reponsequestioncours.dto';
 
-import { UpdatePrivateQuestionDto } from './dto/updatereponsequestioncours.dto';
-@Controller('privateQuestion')
-export class PrivateQuestionController {
-    constructor(private privateQuestionService: PrivateQuestionService) {}
+import { UpdateReponseQestionsCoursDto } from './dto/updatereponsequestioncours.dto';
+@Controller('reponsequestioncours')
+export class ReponseQestionsCoursController {
+    constructor(private reponsequestioncoursService: ReponseQestionsCoursService) {}
 
     // CRUD
     @Post()
-    async create(@Body() privateQuestion: CreatePrivateQuestionDto) {
-      return await this.privateQuestionService.create(
-        privateQuestion
+    async create(@Body() reponsequestioncours: CreateReponseQestionsCoursDto) {
+      return await this.reponsequestioncoursService.create(
+        reponsequestioncours
       )
     }
   
@@ -32,16 +32,16 @@ export class PrivateQuestionController {
     @Get()
     async getAll(
     ) {
-      return await this.privateQuestionService.getAll();
+      return await this.reponsequestioncoursService.getAll();
     }
   
     @Patch()
-    async update(@Body() privateQuestion: UpdatePrivateQuestionDto) {
-      return await this.privateQuestionService.update(privateQuestion);
+    async update(@Body() reponsequestioncours: UpdateReponseQestionsCoursDto) {
+      return await this.reponsequestioncoursService.update(reponsequestioncours);
     }
   
     @Delete(':id')
     async delete(@Param('id') id: string) {
-      return await this.privateQuestionService.delete(id);
+      return await this.reponsequestioncoursService.delete(id);
     }
 }

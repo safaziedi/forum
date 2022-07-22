@@ -15,6 +15,10 @@ export class Formation {
 
   @Prop({type : mongoose.Schema.Types.ObjectId , ref : 'Cours' })
   cours : Cours[]
+
+  @Prop({type: Date, default: Date.now})
+
+  date: string;
 }
 
 export const FormationSchema = SchemaFactory.createForClass(Formation);

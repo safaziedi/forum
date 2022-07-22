@@ -9,6 +9,9 @@ import { FormationsModule } from './Formations/formation.module';
 import { CoursModule } from './Cours/cours.module';
 import { CommentsModule } from './comments/comments.module';
 import { PrivateQuestionModule } from './PrivateQuestion/privatequestion.module';
+import { TestFinalFormationModule } from './TestFinalFormation/testfinalformation.module';
+import { ReponseQestionsCours } from './ReponsesQuestionsCours/reponsequestioncours.schema';
+import { QestionsCoursModule } from './QuestionsCours/questioncours.module';
 
 @Module({
   imports: [
@@ -20,6 +23,9 @@ import { PrivateQuestionModule } from './PrivateQuestion/privatequestion.module'
     FormationsModule,
     CommentsModule,
     PrivateQuestionModule,
+    TestFinalFormationModule,
+    ReponseQestionsCours,
+    QestionsCoursModule,
   ],
   controllers: [AppController],
   providers: [AppService],

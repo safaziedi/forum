@@ -1,4 +1,4 @@
-export class UpdatePrivateQuestionDto {
+export class UpdateReponseQestionsCoursDto {
     id: string;
     contenue: string;
   }
