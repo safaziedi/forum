@@ -1,9 +1,11 @@
 import { ApiProperty } from "@nestjs/swagger";
 
-export class UpdatePrivateQuestionDto {
-    @ApiProperty()
+export class UpdateCategoryDto {
+
+    @ApiProperty() 
     id: string;
-    
+
     @ApiProperty()
-    contenue: string;
+    titre: string;
+
   }

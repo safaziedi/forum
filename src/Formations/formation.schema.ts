@@ -9,6 +9,8 @@ export type FormationDocument = Formation & Document;
 @Schema()
 export class Formation {
 
+  @Prop()
+  titre: string;
 
   @Prop()
   description: string;
@@ -17,7 +19,6 @@ export class Formation {
   cours : Cours[]
 
   @Prop({type: Date, default: Date.now})
-
   date: string;
 }
 

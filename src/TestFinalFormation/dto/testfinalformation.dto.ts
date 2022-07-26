@@ -1,7 +1,9 @@
-import { CreateUserDto } from "src/users/dto/create-user.dto";
+import { ApiProperty } from "@nestjs/swagger";
 
 export class CreateTestFinalFormationDto  {
+    @ApiProperty()
     contenue: string;
-    formateurId : string;
-    etudiantId : string;
+
+    @ApiProperty()
+    reponse: string;
 }

@@ -11,10 +11,14 @@ export class PrivateQuestion {
 
   @Prop()
   contenue: string;
+  
   @Prop()
   formateurId : string;
   @Prop()
   etudiantId : string;
+
+  @Prop({type: Date, default: Date.now})
+  date: string;
 }
 
 export const PrivateQuestionSchema = SchemaFactory.createForClass(PrivateQuestion);

@@ -4,20 +4,19 @@ import { User } from 'src/users/user.schema';
 import * as mongoose from 'mongoose';
 import { Formation } from 'src/Formations/formation.schema';
 
-export type ReponseQestionsCoursDocument = ReponseQestionsCours & Document;
+export type CategoryDocument = Category & Document;
 
 @Schema()
-export class ReponseQestionsCours {
+export class Category {
 
   @Prop()
-  contenue: string;
-  @Prop()
-  formateurId : string;
-  @Prop()
-  etudiantId : string;
+  description: string;
 
+  @Prop({type : mongoose.Schema.Types.ObjectId , ref : 'Formation' })
+  formationId : Formation
+  
   @Prop({type: Date, default: Date.now})
   date: string;
 }
 
-export const ReponseQestionsCoursSchema = SchemaFactory.createForClass(ReponseQestionsCours);
+export const CategorySchema = SchemaFactory.createForClass(Category);

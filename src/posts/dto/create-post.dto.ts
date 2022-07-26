@@ -1,7 +1,8 @@
-import { CreateUserDto } from "src/users/dto/create-user.dto";
-import { User } from "src/users/user.schema";
+import { ApiProperty } from "@nestjs/swagger";
+
 
 export class CreatePostDto  {
+    @ApiProperty()
     description: string;
 
 }

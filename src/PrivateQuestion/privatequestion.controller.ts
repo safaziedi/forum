@@ -6,16 +6,14 @@ import {
     Param,
     Patch,
     Post,
-    UseGuards,
   } from '@nestjs/common';
-  import { CreateUserDto } from 'src/users/dto/create-user.dto';
-  import { JwtAuthGuard } from 'src/users/guards/jwt-guard.guard';
-  import { UserDecorator } from 'src/users/user.decorator';
-  import { User } from 'src/users/user.schema';
 import { PrivateQuestionService } from './privatequestion.service';
 import { CreatePrivateQuestionDto } from './dto/privatequestion.dto';
 
 import { UpdatePrivateQuestionDto } from './dto/updateprivatequestion.dto';
+
+import { ApiTags } from '@nestjs/swagger';
+@ApiTags('Private Question')
 @Controller('privateQuestion')
 export class PrivateQuestionController {
     constructor(private privateQuestionService: PrivateQuestionService) {}

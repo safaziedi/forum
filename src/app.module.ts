@@ -10,8 +10,8 @@ import { CoursModule } from './Cours/cours.module';
 import { CommentsModule } from './comments/comments.module';
 import { PrivateQuestionModule } from './PrivateQuestion/privatequestion.module';
 import { TestFinalFormationModule } from './TestFinalFormation/testfinalformation.module';
-import { ReponseQestionsCours } from './ReponsesQuestionsCours/reponsequestioncours.schema';
 import { QestionsCoursModule } from './QuestionsCours/questioncours.module';
+import { CategoryModule } from './Category/category.module';
 
 @Module({
   imports: [
@@ -24,7 +24,7 @@ import { QestionsCoursModule } from './QuestionsCours/questioncours.module';
     CommentsModule,
     PrivateQuestionModule,
     TestFinalFormationModule,
-    ReponseQestionsCours,
+    CategoryModule,
     QestionsCoursModule,
   ],
   controllers: [AppController],

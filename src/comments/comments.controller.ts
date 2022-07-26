@@ -6,16 +6,15 @@ import {
     Param,
     Patch,
     Post,
-    UseGuards,
   } from '@nestjs/common';
   import { CreateUserDto } from 'src/users/dto/create-user.dto';
-  import { JwtAuthGuard } from 'src/users/guards/jwt-guard.guard';
-  import { UserDecorator } from 'src/users/user.decorator';
-  import { User } from 'src/users/user.schema';
 import { CommentsService } from './comments.service';
 import { CreateCommentDto } from './dto/create-comment.dto';
 
 import { UpdateCommentDto } from './dto/update-comment.dto';
+
+import { ApiTags } from '@nestjs/swagger';
+@ApiTags('Commentaire sur un cours')
 @Controller('comments')
 export class CommentsController {
     constructor(private commentsService: CommentsService) {}

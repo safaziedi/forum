@@ -6,16 +6,15 @@ import {
     Param,
     Patch,
     Post,
-    UseGuards,
   } from '@nestjs/common';
-  import { CreateUserDto } from 'src/users/dto/create-user.dto';
-  import { JwtAuthGuard } from 'src/users/guards/jwt-guard.guard';
-  import { UserDecorator } from 'src/users/user.decorator';
-  import { User } from 'src/users/user.schema';
+
 import { CoursService } from './cours.service';
 import { CreateCoursDto } from './dto/create-cours.dto';
 
 import { UpdateCoursDto } from './dto/update-cours.dto';
+
+import { ApiTags } from '@nestjs/swagger';
+@ApiTags('Cours')
 @Controller('cours')
 export class CoursController {
     constructor(private coursService: CoursService) {}

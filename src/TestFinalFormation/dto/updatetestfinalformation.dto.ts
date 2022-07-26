@@ -1,4 +1,12 @@
+import { ApiProperty } from '@nestjs/swagger';
+
 export class UpdateTestFinalFormationDto {
-    id: string;
-    contenue: string;
-  }
+  @ApiProperty()
+  id: string;
+
+  @ApiProperty()
+  contenue: string;
+
+  @ApiProperty()
+  reponse: string;
+}

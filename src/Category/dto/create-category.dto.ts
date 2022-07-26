@@ -1,11 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { CreateUserDto } from "src/users/dto/create-user.dto";
 
-export class CreateCoursDto  {
+export class CreateCategoryDto  {
     @ApiProperty()
     titre: string;
-    @ApiProperty()
-    description: string;
-    @ApiProperty()
-    formationId : string
 }

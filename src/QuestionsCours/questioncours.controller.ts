@@ -6,16 +6,14 @@ import {
     Param,
     Patch,
     Post,
-    UseGuards,
   } from '@nestjs/common';
-  import { CreateUserDto } from 'src/users/dto/create-user.dto';
-  import { JwtAuthGuard } from 'src/users/guards/jwt-guard.guard';
-  import { UserDecorator } from 'src/users/user.decorator';
-  import { User } from 'src/users/user.schema';
 import { QestionsCoursService } from './questioncours.service';
 import { CreateQestionsCoursDto } from './dto/questioncours.dto';
 
 import { UpdateQestionsCoursDto } from './dto/updatequestioncours.dto';
+
+import { ApiTags } from '@nestjs/swagger';
+@ApiTags('Questions sur un cours QCM')
 @Controller('questioncours')
 export class QestionsCoursController {
     constructor(private questioncoursService: QestionsCoursService) {}

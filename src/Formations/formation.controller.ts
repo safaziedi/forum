@@ -6,16 +6,14 @@ import {
     Param,
     Patch,
     Post,
-    UseGuards,
   } from '@nestjs/common';
-  import { CreateUserDto } from 'src/users/dto/create-user.dto';
-  import { JwtAuthGuard } from 'src/users/guards/jwt-guard.guard';
-  import { UserDecorator } from 'src/users/user.decorator';
-  import { User } from 'src/users/user.schema';
 import { FormationsService } from './formation.service';
 import { CreateFormationDto } from './dto/create-formation.dto';
 
 import { UpdateFormationDto } from './dto/update-formation.dto';
+
+import { ApiTags } from '@nestjs/swagger';
+@ApiTags('Formation')
 @Controller('formations')
 export class FormationsController {
     constructor(private formationsService: FormationsService) {}

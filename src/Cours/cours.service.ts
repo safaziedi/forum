@@ -24,8 +24,8 @@ export class CoursService {
         const idform =createCoursDto.formationId
         const newCours = await this.CoursModel.create(createCoursDto)
         const result = await newCours.save()
+        
         //update table cours dans formation
-        //const updatedFormation = await this.FormationModel.findByIdAndUpdate(idform , {$push :{cours : newCours} ,}).exec();
         const updatedFormation = await this.formationsService.findByIdAndUpdate ( idform , newCours )
         console.log(updatedFormation)
         return newCours;

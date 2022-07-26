@@ -6,16 +6,14 @@ import {
     Param,
     Patch,
     Post,
-    UseGuards,
   } from '@nestjs/common';
-  import { CreateUserDto } from 'src/users/dto/create-user.dto';
-  import { JwtAuthGuard } from 'src/users/guards/jwt-guard.guard';
-  import { UserDecorator } from 'src/users/user.decorator';
-  import { User } from 'src/users/user.schema';
 import { TestFinalFormationService } from './testfinalformation.service';
 import { CreateTestFinalFormationDto } from './dto/testfinalformation.dto';
 
 import { UpdateTestFinalFormationDto } from './dto/updatetestfinalformation.dto';
+
+import { ApiTags } from '@nestjs/swagger';
+@ApiTags('Test Final')
 @Controller('TestFinalFormation')
 export class TestFinalFormationController {
     constructor(private TestFinalFormationService: TestFinalFormationService) {}
