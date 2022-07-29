@@ -11,7 +11,6 @@ export class CreateUserDto  {
     prenom:string;
     
     @ApiProperty()
-    @IsEmail()
     @IsNotEmpty()
     email: string;
 
@@ -31,8 +30,13 @@ export class CreateUserDto  {
     role: UserRole ;
 
     @ApiProperty()
-    @IsNumber()
     note : number;
+
+    @ApiProperty()
+    testPassed : boolean ;
+
+    @ApiProperty()
+    specialite : string;
 
 }
 

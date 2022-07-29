@@ -22,16 +22,20 @@ import {
 export class PostsController {
     constructor(private postsService: PostsService) {}
 
-
-
-  // CRUD
   @Post()
   @UseGuards(JwtAuthGuard)
-  async create(@Body() post: CreatePostDto,@UserDecorator() author : User) {
-    return await this.postsService.create(
+  async create(@Body() post: any,@UserDecorator() author : User) {
+
+  return await this.postsService.create(
       post , author
     )
-  }
+ }
+
+  /*@Post()
+  async create(@Body() post: CreatePostDto) {
+    console.log(post.contents) 
+    return this.postsService.create(post);
+  }*/
 
   
   @Get()

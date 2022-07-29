@@ -7,20 +7,20 @@ import {
     Patch,
     Post,
   } from '@nestjs/common';
-import { PrivateQuestionService } from './privatequestion.service';
-import { CreatePrivateQuestionDto } from './dto/privatequestion.dto';
+import { PrivateMessageService } from './privatemessage.service';
+import { CreatePrivateMessageDto } from './dto/privatemessage.dto';
 
-import { UpdatePrivateQuestionDto } from './dto/updateprivatequestion.dto';
+import { UpdatePrivateMessageDto } from './dto/updateprivatemessage.dto';
 
 import { ApiTags } from '@nestjs/swagger';
 @ApiTags('Private Question')
 @Controller('privateQuestion')
-export class PrivateQuestionController {
-    constructor(private privateQuestionService: PrivateQuestionService) {}
+export class PrivateMessageController {
+    constructor(private privateQuestionService: PrivateMessageService) {}
 
     // CRUD
     @Post()
-    async create(@Body() privateQuestion: CreatePrivateQuestionDto) {
+    async create(@Body() privateQuestion: CreatePrivateMessageDto) {
       return await this.privateQuestionService.create(
         privateQuestion
       )
@@ -34,7 +34,7 @@ export class PrivateQuestionController {
     }
   
     @Patch()
-    async update(@Body() privateQuestion: UpdatePrivateQuestionDto) {
+    async update(@Body() privateQuestion: UpdatePrivateMessageDto) {
       return await this.privateQuestionService.update(privateQuestion);
     }
   

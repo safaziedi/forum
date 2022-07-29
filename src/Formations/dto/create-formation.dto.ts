@@ -8,4 +8,6 @@ export class CreateFormationDto  {
     @ApiProperty()
     description: string;
     
+    @ApiProperty()
+    categoryId : string;
 }

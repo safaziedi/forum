@@ -17,12 +17,11 @@ import { ApiTags } from '@nestjs/swagger';
 export class CategoryController {
     constructor(private categoryService: CategoryService) {}
 
-    // CRUD
+
     @Post()
     async create(@Body() category: CreateCategoryDto) {
-      return await this.categoryService.create(
-        category
-      )
+      console.log(category.title , category.description) 
+      return this.categoryService.create(category);
     }
   
     

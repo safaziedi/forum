@@ -1,7 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
-import { User } from 'src/users/user.schema';
-import * as mongoose from 'mongoose';
+import mongoose, { Document } from 'mongoose';
 import { Formation } from 'src/Formations/formation.schema';
 
 export type CategoryDocument = Category & Document;
@@ -10,13 +8,16 @@ export type CategoryDocument = Category & Document;
 export class Category {
 
   @Prop()
-  description: string;
+  title: string;
 
-  @Prop({type : mongoose.Schema.Types.ObjectId , ref : 'Formation' })
-  formationId : Formation
+  @Prop()
+  description: string;
   
+  @Prop({type : mongoose.Schema.Types.ObjectId , ref : 'Formation' })
+  formations : Formation[]
+
   @Prop({type: Date, default: Date.now})
-  date: string;
+  date: Date;
 }
 
 export const CategorySchema = SchemaFactory.createForClass(Category);

@@ -36,9 +36,33 @@ export class AuthService {
         )
     }
 
-    signupLocal(dto: authDto){
-        //create new user with dto
-        return this.usersService.create(dto)
+    async signupLocal(createUserDto: authDto){
+        if (createUserDto.role == 'ADMIN')
+        {
+          const {email , password , role} =createUserDto
+          const createAdminDto = {email , password , role}
+          
+          return await this.usersService.createAdmin(createAdminDto);
+        }
+    
+        if (createUserDto.role == 'ETUDIANT')
+        {
+          const {nom ,prenom,email , password , role ,note ,testPassed } =createUserDto
+          const createEtudiantDto = {nom ,prenom,email , password , role ,note ,testPassed}
+          
+          return await this.usersService.createEtudiant(createEtudiantDto);
+        }
+    
+        if (createUserDto.role == 'FORMATEUR')
+        {
+          const {nom ,prenom,email , password , role ,specialite} =createUserDto
+          const createFormateurDto = {nom ,prenom,email , password , role , specialite }
+          
+          return await this.usersService.createFormateur(createFormateurDto);
+        }
+    
+        
+        return await this.usersService.create(createUserDto);
     }
 
 

@@ -1,10 +1,12 @@
 import { ApiProperty } from "@nestjs/swagger";
 
-export class CreateQestionsCoursDto  {
+export class CreatePrivateMessageDto  {
     @ApiProperty()
     contenue: string;
 
     @ApiProperty()
-    reponse: string;
+    formateurId : string;
 
+    @ApiProperty()
+    etudiantId : string;
 }

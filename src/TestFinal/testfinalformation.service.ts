@@ -6,8 +6,6 @@ import { UserDecorator } from 'src/users/user.decorator';
 import { CreateTestFinalFormationDto } from './dto/testfinalformation.dto';
 import { UpdateTestFinalFormationDto } from './dto/updatetestfinalformation.dto';
 import { TestFinalFormation } from './testfinalformation.schema';
-import { Formation } from 'src/Formations/formation.schema';
-import { FormationsService } from 'src/Formations/formation.service';
 @Injectable()
 export class TestFinalFormationService {
 
@@ -27,6 +25,11 @@ export class TestFinalFormationService {
         return this.TestFinalFormationModel.find();
       }
 
+
+      async getTestFinalById (testId: string): Promise<TestFinalFormation>
+      {
+        return await this.TestFinalFormationModel.findById(testId);
+      }
 
       async update(TestFinalFormation: UpdateTestFinalFormationDto) {
         const updateTestFinalFormation = new this.TestFinalFormationModel(TestFinalFormation);

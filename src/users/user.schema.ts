@@ -50,6 +50,14 @@ export class User {
   note : number;
 
   @ApiProperty()
+  @Prop()
+  testPassed : boolean ;
+
+  @ApiProperty()
+  @Prop()
+  specialite : string;
+
+  @ApiProperty()
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Post' })
   posts: Post[];
 }

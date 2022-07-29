@@ -1,4 +1,4 @@
 export class UpdatePostDto {
     id: string;
-    description: string;
+    contents: string;
   }

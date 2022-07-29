@@ -5,8 +5,11 @@ export class UpdateTestFinalFormationDto {
   id: string;
 
   @ApiProperty()
-  contenue: string;
+  question: string;
 
   @ApiProperty()
-  reponse: string;
+  numeroquestion: number;
+
+  @ApiProperty()
+  reponse: boolean;
 }

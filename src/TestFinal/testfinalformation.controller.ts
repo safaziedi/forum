@@ -14,7 +14,7 @@ import { UpdateTestFinalFormationDto } from './dto/updatetestfinalformation.dto'
 
 import { ApiTags } from '@nestjs/swagger';
 @ApiTags('Test Final')
-@Controller('TestFinalFormation')
+@Controller('testFinal')
 export class TestFinalFormationController {
     constructor(private TestFinalFormationService: TestFinalFormationService) {}
 
@@ -33,6 +33,13 @@ export class TestFinalFormationController {
       return await this.TestFinalFormationService.getAll();
     }
   
+
+    @Get(':id')
+    async getTestFinalById(@Param('id') testId: string) {
+      return await this.TestFinalFormationService.getTestFinalById(testId);
+    }
+
+
     @Patch()
     async update(@Body() TestFinalFormation: UpdateTestFinalFormationDto) {
       return await this.TestFinalFormationService.update(TestFinalFormation);

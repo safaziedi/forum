@@ -8,24 +8,26 @@ import { AuthModule } from './auth/auth.module';
 import { FormationsModule } from './Formations/formation.module';
 import { CoursModule } from './Cours/cours.module';
 import { CommentsModule } from './comments/comments.module';
-import { PrivateQuestionModule } from './PrivateQuestion/privatequestion.module';
-import { TestFinalFormationModule } from './TestFinalFormation/testfinalformation.module';
-import { QestionsCoursModule } from './QuestionsCours/questioncours.module';
+import { PrivateMessageModule} from './PrivateMessage/privatemessage.module';
+import { TestFinalFormationModule } from './TestFinal/testfinalformation.module';
+import { QCMModule} from './QCMCours/qcm.module';
 import { CategoryModule } from './Category/category.module';
+import { QuestionModule } from './Question/question.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb+srv://dbUser:safaziadi07012001@cluster0.thbgv.mongodb.net/forum?retryWrites=true&w=majority'),
+    MongooseModule.forRoot('mongodb+srv://dbUser:safaziadi07012001@cluster0.thbgv.mongodb.net/Pedemy?retryWrites=true&w=majority'),
     UsersModule,
     PostsModule ,
     AuthModule,
     CoursModule,
     FormationsModule,
     CommentsModule,
-    PrivateQuestionModule,
     TestFinalFormationModule,
     CategoryModule,
-    QestionsCoursModule,
+    QCMModule,
+    PrivateMessageModule ,
+    QuestionModule,
   ],
   controllers: [AppController],
   providers: [AppService],

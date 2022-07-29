@@ -1,10 +1,9 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsEmail, IsIn, IsNotEmpty, IsNumber, ValidateIf } from "class-validator";
-import { UserRole } from "src/users/user.enum";
+import { UserRole } from "../user.enum";
 
-export class authDto{
+export class CreateEtudiantDto  {
 
-  
     @ApiProperty()
     nom: string;
   
@@ -34,8 +33,7 @@ export class authDto{
     note : number;
 
     @ApiProperty()
-    testPassed : boolean ;
+    testPassed : boolean ; 
 
-    @ApiProperty()
-    specialite : string;
 }
+

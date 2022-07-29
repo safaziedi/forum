@@ -1,14 +1,16 @@
 import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { PostsModule } from 'src/posts/posts.module';
 import { Formation, FormationSchema } from './formation.schema';
 import { FormationsController } from './formation.controller';
 import { FormationsService } from './formation.service';
-import { CoursModule } from 'src/Cours/cours.module';
+import { CategoryModule } from 'src/Category/category.module';
+import { TestFinalFormationModule } from 'src/TestFinal/testfinalformation.module';
 
 @Module({
   imports :[
+    CategoryModule , 
+    TestFinalFormationModule , 
     MongooseModule.forFeature([
       {
         name : Formation.name  ,
